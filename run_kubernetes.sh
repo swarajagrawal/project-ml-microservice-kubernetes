@@ -12,9 +12,9 @@ kubectl create deploy project-ml-microservice-kubernetes --image=647868873944.dk
 
 # Step 3:
 # List kubernetes pods
-kubectl get deploy,rs,svc,pods
+kubectl get pods
 
 # Step 4:
 # Forward the container port to a host
 #kubectl port-forward pod/python-helloworld-84857d9565-2598m --address 0.0.0.0 80:80
-kubectl port-forward deployment/project-ml-microservice-kubernetes 80:80
+kubectl port-forward deployment/project-ml-microservice-kubernetes 8000:80
