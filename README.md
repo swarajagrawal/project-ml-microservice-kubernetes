@@ -23,6 +23,22 @@ Standalone: python app.py
 Run in Docker: ./run_docker.sh
 Run in Kubernetes: ./run_kubernetes.sh
 
+
+Kubernetes Steps
+
+Setup and Configure Docker locally: Install docker for mac. It will install Docker desktop , Kubernetes and kubectl by default. [https://www.docker.com ]
+
+Building docker image docker build -t ml-kubermnetes .  To List the images created docker image ls To start the docker image docker run -p 8080:80 ml-kubermnetes
+Add all the above command in a file run_docker.sh
+
+Setup and Configure Kubernetes locally: Install kubectl and minikube. Start minikube: minikube start. Verify cluster: kubectl config view.
+
+Create Flask app in Container: Create a Docker file with workign directory WORKDIR /app Copy COPY . app.py /app/ to container. Install the dependencies. RUN pip install --upgrade pip &&\ pip install --trusted-host pypi.python.org -r requirements.txt Build the docker image, list docker images created and run the containerized Flask app by calling script: ./run_docker.sh. Make a prediction: Open a separate tab and call script: ./make_prediction.sh.
+
+Run via kubectl: Run the containerized application by calling script: ./run_kubernetes.sh. (Check pod status by executing kubectl get pod and rerun run_kubernetes.sh script when status changes from ContainerCreating to Running). Make a prediction: Open a separate tab and call script: ./make_prediction.sh.
+
+Delete the Kubernetes cluster: minikube delete (Or pause by running minikube stop).
+
 **Description of the files used in this project**
 
 app.py - A Flask app created usign python to predict Boston Housing prices.
