@@ -15,3 +15,10 @@ Handling connection for 8000
    CHAS     RM    TAX  PTRATIO      B  LSTAT
 0     0  6.575  296.0     15.3  396.9   4.98
 [2023-03-28 16:00:46,142] INFO in app: output prediction: [20.35373177134412]
+
+Prediction output on the terminal when make_prediction.sh was ran. 
+{
+  "prediction": [
+    20.35373177134412
+  ]
+}
